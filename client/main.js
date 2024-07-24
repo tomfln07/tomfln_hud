@@ -86,13 +86,21 @@ function Show_radar_in_vehicule() {
     }
 }, 250)*/
 
-setInterval(() => {
-    update_player_stats();
-    Show_radar_in_vehicule();
-}, 500);
+// Disable classic gta hud
+setTick(() => {
+    HideHudComponentThisFrame(3);
+    HideHudComponentThisFrame(4);
+    HideHudComponentThisFrame(6);
+    HideHudComponentThisFrame(7);
+    HideHudComponentThisFrame(8);
+    HideHudComponentThisFrame(9);
+    HideHudComponentThisFrame(16);
+})
 
 setInterval(() => {
     update_server_stats();
+    update_player_stats();
+    Show_radar_in_vehicule();
 }, 1000);
 
 setInterval(update_street_name, 3500); // interval needs to be >= time that a street name stays on screen (cf web/srv/street_name/street_name.jsx)

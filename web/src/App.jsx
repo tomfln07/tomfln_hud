@@ -13,7 +13,7 @@ import "./App.css"
 export default function App() {
   const [show, set_show] = useState(true);
   const [config, set_config] = useState();
-  const [is_config_recieved, set_is_config_recieved] = useState(false);
+  //const [is_config_recieved, set_is_config_recieved] = useState(false);
   
   useEffect(() => {
     function hundler(e) {
@@ -22,7 +22,7 @@ export default function App() {
       }
       else if (e.data.type == "config") {
         set_config(e.data.data);
-        set_is_config_recieved(true);
+        //set_is_config_recieved(true);
       }
     }
 
@@ -37,7 +37,7 @@ export default function App() {
   return (
     show && config ? (
       <>
-        {config["framework"] == "esx" ? <Money_infos/> : null}
+        {config["framework"] == "esx" ? <Money_infos config={config}/> : null}
         <Street_name/>
         <Player_stats/>
         <Server_infos config={config}/>

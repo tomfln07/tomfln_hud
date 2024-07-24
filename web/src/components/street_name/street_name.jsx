@@ -25,8 +25,6 @@ export function Street_name() {
         }
     }, [])
 
-    console.log("refreshed")
-
     return (
         street_name ? (
             <div id="street-name-container">

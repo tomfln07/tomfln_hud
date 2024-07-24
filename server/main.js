@@ -1,5 +1,4 @@
 RegisterNetEvent("get_server_stats");
-
 onNet("get_server_stats", () => {
     data = {
         "ping": GetPlayerPing(source),
