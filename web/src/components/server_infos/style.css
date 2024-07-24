@@ -1,0 +1,21 @@
+#server-infos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 15px;
+
+    animation: server-infos-in 0.5s;
+}
+
+#player-numbers-container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+#player-numbers-container p { margin: 2px }
+
+@keyframes server-infos-in {
+    from { transform: translate(150px, -150px) }
+    to { transform: translate(0px, 0px) }
+}

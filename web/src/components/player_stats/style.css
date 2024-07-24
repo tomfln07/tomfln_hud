@@ -1,0 +1,24 @@
+#player-stats-container {
+    --offset: 5%;
+
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+
+}
+
+.player-stats-positioner {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: center;
+
+    animation: player-stats-in 0.5s;
+}
+
+@keyframes player-stats-in {
+    from { transform: translate(0px, 150px) }
+    to { transform: translate(0px, 0px) }
+}

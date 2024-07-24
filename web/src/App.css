@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "cabin";
+    src: url("/fonts/Cabin-VariableFont_wdth,wght.ttf");
+}
+
+@font-face {
+    font-family: "poppinsBolt";
+    src: url("/fonts/Poppins-BoldItalic.ttf");
+}
+
+@font-face {
+    font-family: "poppinsLigth";
+    src: url("/fonts/Poppins-Light.ttf");
+}
+
+@font-face {
+    font-family: "josefinsansLigth";
+    src: url("/fonts/JosefinSans-Light.ttf");
+}
+
+body { overflow: hidden }
+
+.simple-txt-shadows {
+    color: white;
+    text-shadow: 0px 0px 7px #000000;
+    font-family: poppinsBolt;
+}
