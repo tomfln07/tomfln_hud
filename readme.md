@@ -27,7 +27,7 @@ Feel free to report any bug, or make me proposals to enhance this resource
 ## Config file
 You can easly modify this resource's configuration with the config/config.js file !
 
-Change the name of your server (wich will be displayed on the hud), language and more...
+Change the name of your server (which will be displayed on the hud), language and more...
 
 ### Commands
 `> showhud 0 | 1`
