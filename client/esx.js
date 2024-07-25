@@ -14,7 +14,7 @@ on("onClientResourceStart", resource_name => {
 
         const player_data = ESX.GetPlayerData();
         NuiMessage("update_money", player_data.accounts);
-    }, 1000);
+    }, config.timings.main_update_interval);
     
     // Player's thirst & hunger update
     on("esx_status:onTick", status => {

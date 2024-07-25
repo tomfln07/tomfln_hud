@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import "./style.css"
 
-export function Street_name() {
+export function Street_name({ config }) {
     const [street_name, set_street_name] = useState();
     const timeout = useRef(null);
     const anim_ref = useRef();
@@ -11,8 +11,8 @@ export function Street_name() {
             if (e.data.type == "update_street_name") {
                 clearTimeout(timeout.current);
                 set_street_name(e.data.data["street_name"]);
-                
-                timeout.current = setTimeout(() => set_street_name(null), 3500); // a street name stays 3,5s
+
+                timeout.current = setTimeout(() => set_street_name(null), config.timings.street_name_duration);
             }
         }
 

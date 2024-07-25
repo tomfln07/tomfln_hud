@@ -100,6 +100,6 @@ setInterval(() => {
     update_server_stats();
     update_player_stats();
     Show_radar_in_vehicule();
-}, 1000);
+}, config.timings.main_update_interval);
 
-setInterval(update_street_name, 3500); // interval needs to be >= time that a street name stays on screen (cf web/srv/street_name/street_name.jsx)
+setInterval(update_street_name, config.timings.street_name_duration);
