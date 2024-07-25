@@ -12,7 +12,10 @@ export function Player_stat({ type }) {
             if (e.data.type == "update_player_stats") {
                 var stat;
                 
-                if (type == "pv") {
+                if (type == "thirst" || type == "hunger") {
+                    stat = data["player_stats"][type]["percent"]
+                }
+                else if (type == "pv") {
                     stat = (data["player_stats"][type]["current"] - 100) / (data["player_stats"][type]["max"] - 100) * 100;
                     
                     if (stat <= 0) stat = 0;
@@ -34,7 +37,13 @@ export function Player_stat({ type }) {
     return (
         <>
             <div className="stat-container">
-                <img src={type == "pv" ? "./img/heart.png" : type == "armour" ? "./img/armour.png" : null} className="player_stat_img" />
+                <img src={
+                    type == "pv" ? "./img/heart.png" :
+                    type == "armour" ? "./img/armour.png" :
+                    type == "thirst" ? "./img/water.png" :
+                    type == "hunger" ? "./img/chicken_leg.png"
+                    : null
+                } className="player_stat_img" />
                 <div className="bar">
                     <div className={`progress ${type}`} style={{ width: `${stat}%` }}>
                         <p className="bar-txt" style={{ marginLeft: `${stat/2}%` }}>{stat != 0 ? `${stat}%` : null}</p>

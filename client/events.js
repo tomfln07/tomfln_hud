@@ -6,10 +6,6 @@ on("onClientResourceStart", resource_name => {
 
     ped_id = PlayerPedId();
     //SetPedArmour(ped_id, 100);
-    
-    // Desactivate radar
-    is_radar_displayed = !is_radar_displayed;
-    DisplayRadar(is_radar_displayed);
 });
 
 RegisterNetEvent("get_server_stats_cb");

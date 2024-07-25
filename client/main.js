@@ -1,5 +1,4 @@
 var ped_id = PlayerPedId();
-var is_radar_displayed = true;
 var ui_infos = {
     "player_stats": {
         "pv": {
@@ -23,7 +22,8 @@ var ui_infos = {
     "voice_chat": {
         "is_player_talking": undefined
     },
-    "street_name": undefined
+    "street_name": undefined,
+    "is_radar_displayed": !IsRadarHidden()
 }
 
 function update_player_stats() {
@@ -66,14 +66,14 @@ function update_street_name() {
 
 function Show_radar_in_vehicule() {
     if (IsPedInAnyVehicle(ped_id, true)) {
-        if (is_radar_displayed == false) {
-            is_radar_displayed = true;
-            DisplayRadar(is_radar_displayed);
+        if (ui_infos["is_radar_displayed"] == false) {
+            ui_infos["is_radar_displayed"] = true;
+            DisplayRadar(ui_infos["is_radar_displayed"]);
         }
     }
-    else if (is_radar_displayed == true) {
-        is_radar_displayed = false;
-        DisplayRadar(is_radar_displayed);
+    else if (ui_infos["is_radar_displayed"] == true) {
+        ui_infos["is_radar_displayed"] = false;
+        DisplayRadar(ui_infos["is_radar_displayed"]);
     }
 }
 
@@ -94,7 +94,6 @@ setTick(() => {
     HideHudComponentThisFrame(7);
     HideHudComponentThisFrame(8);
     HideHudComponentThisFrame(9);
-    HideHudComponentThisFrame(16);
 })
 
 setInterval(() => {

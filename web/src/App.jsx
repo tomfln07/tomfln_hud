@@ -39,7 +39,7 @@ export default function App() {
       <>
         {config["framework"] == "esx" ? <Money_infos config={config}/> : null}
         <Street_name/>
-        <Player_stats/>
+        <Player_stats config={config}/>
         <Server_infos config={config}/>
         {/*<Mic/>*/}
       </>

@@ -1,13 +1,3 @@
-var ESX;
-
-function update_player_money() {
-    if (!ESX)
-        return;
-
-    const player_data = ESX.GetPlayerData();
-    NuiMessage("update_money", player_data.accounts);
-}
-
 on("onClientResourceStart", resource_name => {
     if (GetCurrentResourceName() !== resource_name)
         return;
@@ -15,7 +5,22 @@ on("onClientResourceStart", resource_name => {
     if (config["framework"] != "esx")
         return;
 
-    ESX = exports["es_extended"]["getSharedObject"]();
-    update_player_money()
-    setInterval(update_player_money, 1000);
+    const ESX = exports["es_extended"]["getSharedObject"]();
+
+    // Player's money update
+    setInterval(() => {
+        if (!ESX)
+            return;
+
+        const player_data = ESX.GetPlayerData();
+        NuiMessage("update_money", player_data.accounts);
+    }, 1000);
+    
+    // Player's thirst & hunger update
+    on("esx_status:onTick", status => {
+        ui_infos["player_stats"][status[0].name] = { "percent": status[0].percent };
+        ui_infos["player_stats"][status[1].name] = { "percent": status[1].percent };
+        
+        NuiMessage("update_player_stats", ui_infos);
+    });
 });
